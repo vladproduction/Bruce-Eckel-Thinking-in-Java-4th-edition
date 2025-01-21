@@ -14,12 +14,13 @@ public class LiftOff implements Runnable {
 
     public String status() {
         return "#" + id + "(" +
-                (countDown > 0 ? countDown : "Liftoff!") + "); ";
+                (countDown > 0 ? countDown : "Liftoff!!!") + "); ";
     }
 
     public void run() {
+        System.out.println("Lift "  + id + " started...");
         while (countDown-- > 0) {
-            System.out.print(status());
+            System.out.print(status() + "\n");
             Thread.yield();
         }
     }
