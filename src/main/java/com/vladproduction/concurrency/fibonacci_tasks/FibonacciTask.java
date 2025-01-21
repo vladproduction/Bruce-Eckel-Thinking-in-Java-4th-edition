@@ -2,20 +2,19 @@ package com.vladproduction.concurrency.fibonacci_tasks;
 
 public class FibonacciTask implements Runnable{
 
-    private int n;
+    private final int n;
 
-    public FibonacciTask(int n) {
+    public FibonacciTask(int n, String name) {
         this.n = n;
     }
 
     @Override
     public void run() {
-        long[] fibonacci = generateFibonacci(n);
-        System.out.print("Fibonacci sequence for n: " + n + ": ");
-        for (long num : fibonacci) {
-            System.out.print(num + " ");
+        long[] fibonacci = generateFibonacci(this.n);
+        System.out.println("Fibonacci sequence for n: " + this.n);
+        for (int i = 0; i < fibonacci.length; i++) {
+            System.out.println(Thread.currentThread().getName() + "[n: "  + n + "]" + " (step " + i + ") : " + fibonacci[i]);
         }
-        System.out.println();
     }
 
     //generator method based on 'n'
@@ -29,7 +28,7 @@ public class FibonacciTask implements Runnable{
         }
         //fibonacci formula:
         for (int i = 2; i < n; i++) {
-            fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
         }
         return fibonacci;
     }

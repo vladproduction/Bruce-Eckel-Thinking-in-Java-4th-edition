@@ -4,14 +4,15 @@ public class TestFibonacciTask {
     public static void main(String[] args) {
 
         // Number of Fibonacci numbers to generate for each task
-        int[] taskSizes = {5, 7, 10, 12};
+        int[] taskSizes = {3, 5, 4, 7};
 
         //create  some tasks
         Thread[] threads = new Thread[taskSizes.length];
 
         // Initialize and start threads for each task
         for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(new FibonacciTask(i));
+            String name = "Thread-";
+            threads[i] = new Thread(new FibonacciTask(taskSizes[i], name + " " + i));
             threads[i].start();
         }
 
