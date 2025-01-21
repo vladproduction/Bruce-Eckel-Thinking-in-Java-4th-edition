@@ -1,4 +1,4 @@
-package com.vladproduction.concurrency.thread_runnable_demo;
+package com.vladproduction.concurrency.thread_runnable_simple_demo;
 
 public class LiftOff implements Runnable {
     protected int countDown = 10; // Default

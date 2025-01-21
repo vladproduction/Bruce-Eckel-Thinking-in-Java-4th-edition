@@ -1,6 +1,6 @@
 package com.vladproduction.concurrency.sleeping;
 
-import com.vladproduction.concurrency.thread_runnable_demo.LiftOff;
+import com.vladproduction.concurrency.thread_runnable_simple_demo.LiftOff;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
