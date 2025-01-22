@@ -1,0 +1,38 @@
+Working in corporate multitasking mode
+
+Then the following approach can be proposed for organizing multitasking:
+
+- having received control, the process executes a certain number of instructions of its program,
+after which it voluntarily transfers control to the operating system scheduler process;
+
+- the scheduler, having received control, selects one of the processes ready for execution and transfers control to it.
+
+The considered approach to organizing multitasking is known as corporate multitasking.
+Corporate multitasking is also called coordinating or non-preemptive multitasking.
+
+-->
+Below is a simple Java code example that illustrates a basic concept of corporate (non-preemptive) multitasking.
+Since Java handles threading in a way that doesn't allow for the explicit voluntary yielding of control like in description,
+we'll simulate this behavior by using a shared resource and allowing each "task" to complete its execution before yielding control.
+
+Explanation:
+* Task Class: Represents a runnable task that prints its execution status and simulates some work by sleeping for one second before yielding control.
+* NonPreemptiveMultitasking Class: The main method manages the execution of tasks. It ensures that each task finishes executing before starting the next one (simulating non-preemptive multitasking).
+* Thread Handling: We create and start threads for each task but wait for the first task to complete before starting the second.
+
+
+-----------------------------------
+Explanation of the Schema (img.png):
+
+Operating System Scheduler: The central component that manages the execution of tasks. It decides which process (or task) to run next.
+
+Processes: Each process represents a task to be executed. In corporate multitasking, each process runs to completion or until
+it voluntarily yields control back to the operating system.
+
+Control Transfer: The mechanism by which the operating system scheduler gives control to a process. When a process finishes
+executing or decides to yield control, it passes control back to the scheduler.
+
+Yielding Control: This indicates that processes voluntarily pause their execution to allow the OS to schedule another task.
+
+This schema simplifies the understanding of corporate multitasking, showcasing how processes interact with the operating system scheduler
+while ensuring only one task actively executes at any time until it completes its assigned work.

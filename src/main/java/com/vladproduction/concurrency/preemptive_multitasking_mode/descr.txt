@@ -1,0 +1,56 @@
+ Preemptive multitasking mode
+ ----------------------------
+
+ In preemptive multitasking mode, the operating system works as follows:
+
+ 1) When a hardware interrupt occurs from the system timer, the interrupt handler receives control,
+ which immediately transfers control to the scheduler process, so the scheduler receives control without an
+ explicit call from the executing process, and even without the consent of this process.
+
+ 2) The scheduler determines the next process to be executed and the time quantum during which this process is scheduled to execute.
+ The scheduler then programs the timer for this time interval and transfers control to the selected process.
+ In this way, the scheduler guarantees that it will receive control again no later than after a specified time interval.
+
+ 3) The scheduler can receive control before the expiration of the set time quantum, if the executing process initiates a system call.
+ As in the case of enterprise multitasking, the scheduler is automatically called upon completion of the system call.
+
+-->
+Explanation of code example:
+
+* Task Class: Represents a runnable task that has a specific execution time and a time slice (quantum).
+The task runs for a specified amount of time and then "yields" control by completing one time slice of execution.
+
+* Run Method: The run method simulates the task execution in time slices.
+The total execution time is decremented by the time slice after each execution until the task is completed.
+
+* PreemptiveMultitasking Class: This class creates and manages threads for multiple tasks.
+Each thread runs concurrently, allowing preemptive multitasking simulation.
+
+* Thread Handling: All tasks are started in separate threads, creating a scenario where the operating system (Java's thread scheduler)
+can preempt the execution based on time slices.
+
+    This example simplifies the idea behind preemptive multitasking and provides a basic framework to observe
+ how tasks can be executed in a time-sliced manner.
+ Keep in mind that actual preemptive multitasking involves low-level control from the operating system
+ and is typically beyond the scope of Java applications.
+
+
+ ------------------------------
+ Explanation of the Schema (img.png):
+
+ Operating System Scheduler: Manages the scheduling of processes and determines which task to execute next.
+
+ Interrupt Handler: Triggered by hardware interrupts from the system timer. It receives control before returning to the scheduler.
+
+ Process Scheduler: After an interrupt, the scheduler determines the next process to run based on scheduling algorithms,
+ assigning a time quantum for execution.
+
+ Processes: Each process represents a task being executed. In preemptive multitasking, the scheduler can interrupt a running process
+ if the time quantum expires or if a system call occurs.
+
+ Control Transfer: The flow of control goes between the scheduler and the processes.
+ When a time quantum expires or a system call is initiated, the running process yields control back to the scheduler,
+ which then selects the next task to execute.
+
+ This schema illustrates how preemptive multitasking allows multiple processes to share CPU time by forcing context
+ switches based on time slices and interrupts, without requiring explicit actions from the executing processes.
