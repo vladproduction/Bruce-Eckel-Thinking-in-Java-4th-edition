@@ -1,4 +1,4 @@
-package com.vladproduction.concurrency.executors;
+package com.vladproduction.concurrency.thread_runnable_simple_demo;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,5 +1,8 @@
 package com.vladproduction.concurrency.thread_runnable_simple_demo;
 
+/**
+ * self-managed Runnable
+ * */
 public class SimpleRunnable implements Runnable{
 
     private int decrement = 5;

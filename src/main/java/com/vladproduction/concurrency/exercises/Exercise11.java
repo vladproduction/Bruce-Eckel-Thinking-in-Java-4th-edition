@@ -1,4 +1,4 @@
-package com.vladproduction.concurrency.sharing_data;
+package com.vladproduction.concurrency.exercises;
 
 /**
  * Create a class containing two data fields, and a method that manipulates
