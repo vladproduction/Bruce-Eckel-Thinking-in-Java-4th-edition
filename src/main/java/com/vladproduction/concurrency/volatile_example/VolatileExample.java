@@ -12,6 +12,12 @@ package com.vladproduction.concurrency.volatile_example;
  * If you need to perform compound actions (like check-then-act), you still need to use synchronized blocks or locks.
  *
  * More complex scenarios involving multiple operations, synchronization may still be necessary.
+ *
+ * Eventually:
+ * The volatile keyword also ensures that changes are visible to the application.
+ * If a field is declared with the volatile keyword, it means that immediately after
+ * writing to that field, all reads will "see" the change. This is true
+ * even when using local caches - volatile fields are immediately written to main memory, and reads are performed from main memory.
  * */
 public class VolatileExample {
 

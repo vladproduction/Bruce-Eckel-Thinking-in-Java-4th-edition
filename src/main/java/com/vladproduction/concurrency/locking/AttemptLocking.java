@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Reentrant Locks:
  * - The class uses a ReentrantLock, which is a concrete implementation of the Lock interface.
- *   It allows threads to lock and unlock resources, providing finer control over concurrency compared to the synchronized keyword.
+ *   It allows threads to lock and unlock resources, providing finer control over concurrency compared to the 'synchronized' keyword.
  * - A reentrant lock allows the same thread to acquire the lock multiple times without causing a deadlock.
  * */
 public class AttemptLocking {
